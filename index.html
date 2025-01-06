@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth and Decay Classifier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Video Background -->
+    <video id="video-background" autoplay muted loop>
+        <source src="/background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header>
+        <h1>Growth and Decay Classifier</h1>
+    </header>
+    
+    <main>
+        <section id="definition">
+            <h2>Understanding Growth and Decay</h2>
+            <p><b>Growth:</b> Let x(t) denote the amount of substance (or population) that is growing or decaying. If we assume that the time rate of change of this amount of substance, dx/dt, is proportional to the amount of substance present, then dx/dt = kx. Where, k is the constant of proportionality, which determines the rate at which the substance grows or decays. It is often referred to as the growth rate or decay rate. The assumption that x(t) is a differentiable and continuous function of time ensures that the rate of change at any given time is well-defined, and the model can be smoothly applied throughout the domain of interest.Growth occurs when the rate constant k > 0, meaning the quantity increases over time.</p>
+            <p><b>Decay:</b> This refers to the process where the quantity of a substance or population decreases over time. Occurs when k < 0, meaning the quantity decreases over time.</p>
+            <p><b>Formula:</b> y(t) = y(0) * e^(kt), where y(0) is the initial value, k is the rate constant, and t is time.</p>
+        </section>
+        
+        <!-- Equation Input Section -->
+        <section id="classifier">
+            <h2>Identify Growth and Decay Equations</h2>
+            <form id="classify-form">
+                <label for="equation">Enter Differential Equation (dy/dt = ky or dy/dt = -ky):</label>
+                <input type="text" id="equation" name="equation" placeholder="e.g., dy/dt = 3y or dy/dt = -4y" required>
+                
+                <label for="initial-value">Enter Initial Value (y(0)):</label>
+                <input type="number" id="initial-value" name="initial-value" placeholder="Enter the initial value (y(0))" required>
+                
+                <label for="y-t">Enter y(t) Value:</label>
+                <input type="number" id="y-t" name="y-t" placeholder="Enter the value of y(t)" required>
+                
+                <label for="time">Enter Time (t):</label>
+                <input type="number" id="time" name="time" placeholder="Enter the time (t)" required>
+                
+                <button type="button" id="solve-btn">Solve for k</button>
+            </form>
+            
+            <!-- Results Table -->
+            <table id="results-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Equation</th>
+                        <th>Type</th>
+                        <th>Rate (k)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be dynamically inserted here -->
+                </tbody>
+            </table>
+
+            <!-- Solutions Section -->
+            <div id="solutions">
+                <h3>Solutions</h3>
+                <p>Results will appear here.</p>
+            </div>
+        </section>
+  <!-- Limitations Section -->
+        <section id="limitations">
+            <h2>Limitations</h2>
+            <div class="limitations-box">
+                <ul>
+                    <li>The program does not validate the input equations; it assumes the user provides the correct form of the equation.</li>
+                    <li>Only solves for rate constant (k) and determines if the process is growth or decay.</li>
+                    <li>Invalid inputs, like negative or zero values for (y(0)) or (y(t)), will not be handled properly.</li>
+                    <li>The solution assumes (k > 0) for growth and (k < 0) for decay.</li>
+                    <li>There are no checks for the correct units of the input values.</li>
+                    <li>The program assumes that time (t) cannot be zero.</li>
+                    <li>Calculation for (k) may lead to floating-point precision issues.</li>
+                    <li>No validation is made if the equation type (growth or decay) matches the calculated value of (k).</li>
+                    <li>The program does not support more complex differential equations beyond the simple (dy/dt = ky) or (dy/dt = -ky) forms.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Gonzales, Shella Mea A. |BSCpE 2 Day</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>
